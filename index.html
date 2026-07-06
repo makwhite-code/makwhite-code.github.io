@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mali White — Product &amp; UX Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+    /* ---- UpCycle featured case ---- */
+.upcycle-case{
+  grid-template-columns:1.15fr 1fr;
+  gap:64px;
+  align-items:start;
+}
+
+.upcycle-gallery{
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+}
+
+.mockup-block img{
+  width:100%;
+  display:block;
+  border:1px solid var(--line);
+  background:var(--mist);
+}
+
+.mockup-block p{
+  margin:8px 0 0;
+  font-size:0.85rem;
+  color:var(--ink-soft);
+  text-align:center;
+  font-style:italic;
+}
+
+.status-badge{
+  display:inline-block;
+  padding:6px 12px;
+  background:var(--mist);
+  border:1px solid var(--line);
+  border-radius:14px;
+  font-size:.8rem;
+  font-family:'IBM Plex Mono',monospace;
+  margin-bottom:18px;
+  color:var(--brass);
+}
+
+@media(max-width:760px){
+  .upcycle-case{
+    grid-template-columns:1fr;
+  }
+}
+  :root{
+    --paper:#F5F3EE;
+    --mist:#EDEAE0;
+    --ink:#1C2230;
+    --ink-soft:#4A5064;
+    --garnet:#8E2436;
+    --brass:#AD8A3C;
+    --line:#DAD5C7;
+    --sage:#4B5A4A;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:48px 48px;
+    background-position:-1px -1px;
+    background-attachment:fixed;
+  }
+  ::selection{background:var(--garnet);color:var(--paper);}
+  h1,h2,h3{font-family:'Source Serif 4', serif; font-weight:600; margin:0; color:var(--ink);}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    font-size:0.72rem;
+    color:var(--garnet);
+    font-weight:500;
+  }
+  a{color:var(--garnet);}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 32px;}
+ 
+  /* ---- Process rail (signature element) ---- */
+  .rail{
+    position:sticky; top:0; z-index:50;
+    background:rgba(245,243,238,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .rail-inner{
+    max-width:1080px; margin:0 auto; padding:14px 32px;
+    display:flex; align-items:center; justify-content:space-between; gap:24px;
+  }
+  .rail-mark{font-family:'Source Serif 4',serif; font-weight:600; font-size:1.05rem; white-space:nowrap;}
+  .rail-mark span{color:var(--garnet);}
+  .steps{display:flex; gap:0; list-style:none; margin:0; padding:0; flex:1; justify-content:flex-end;}
+  .steps li{margin-left:22px;}
+  .steps a{
+    text-decoration:none; color:var(--ink-soft);
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+    text-transform:uppercase; letter-spacing:0.08em;
+    padding-bottom:4px; border-bottom:2px solid transparent;
+    transition:color .2s, border-color .2s;
+  }
+  .steps a .num{color:var(--brass); margin-right:6px;}
+  .steps a.active, .steps a:hover{color:var(--garnet); border-color:var(--garnet);}
+  @media (max-width:760px){
+    .steps{display:none;}
+  }
+ 
+  section{padding:96px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+ 
+  /* ---- Hero ---- */
+  .hero{padding-top:72px;}
+  .hero-grid{display:grid; grid-template-columns:1.3fr 0.9fr; gap:56px; align-items:center;}
+  .hero h1{font-size:2.6rem; line-height:1.15; margin:14px 0 20px;}
+  .hero p.lede{font-size:1.15rem; color:var(--ink-soft); max-width:46ch;}
+  .hero-tags{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px;}
+  .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+    border:1px solid var(--line); background:var(--mist);
+    padding:6px 12px; border-radius:2px; color:var(--ink-soft);
+  }
+  .hero-cta{margin-top:32px; display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:0.8rem;
+    text-decoration:none; padding:12px 20px; letter-spacing:0.03em;
+    border:1px solid var(--ink); color:var(--ink); transition:all .2s;
+  }
+  .btn.primary{background:var(--garnet); border-color:var(--garnet); color:var(--paper);}
+  .btn:hover{transform:translateY(-2px);}
+  .hero-photo{
+    border:1px solid var(--line); background:var(--mist); padding:10px;
+  }
+  .hero-photo img{display:block; width:100%; height:auto; filter:grayscale(15%);}
+  .hero-photo figcaption{
+    font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:var(--ink-soft);
+    padding:10px 4px 2px;
+  }
+ 
+  /* ---- Section headers ---- */
+  .section-head{margin-bottom:44px; max-width:64ch;}
+  .section-head h2{font-size:1.9rem; margin-top:10px;}
+  .section-head p{color:var(--ink-soft); margin-top:12px;}
+ 
+  /* ---- About / Define ---- */
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px;}
+  .fact-list{list-style:none; margin:24px 0 0; padding:0; border-top:1px solid var(--line);}
+  .fact-list li{
+    display:flex; justify-content:space-between; gap:20px;
+    padding:14px 0; border-bottom:1px solid var(--line); font-size:0.95rem;
+  }
+  .fact-list li .k{font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--brass); text-transform:uppercase; letter-spacing:0.06em; white-space:nowrap; padding-top:2px;}
+  .fact-list li .v{text-align:right; color:var(--ink-soft);}
+ 
+  .goal-cards{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:30px;}
+  .goal-card{border:1px solid var(--line); background:var(--mist); padding:22px;}
+  .goal-card .eyebrow{display:block; margin-bottom:10px;}
+  .goal-card p{margin:0; color:var(--ink-soft); font-size:0.92rem;}
+  @media (max-width:760px){ .about-grid, .goal-cards{grid-template-columns:1fr;} }
+
+  /* ---------- Skills ---------- */
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    margin-top:40px;
+}
+
+.skill-card{
+    background:var(--mist);
+    border:1px solid var(--line);
+    padding:24px;
+}
+
+.skill-card h4{
+    margin:0 0 18px;
+    font-family:'Source Serif 4', serif;
+    font-size:1.1rem;
+}
+
+.skill-card ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.skill-card li{
+    padding:8px 0;
+    color:var(--ink-soft);
+    border-bottom:1px solid rgba(0,0,0,.08);
+    font-size:.92rem;
+}
+
+.skill-card li:last-child{
+    border-bottom:none;
+}
+
+@media(max-width:900px){
+    .skills-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+    .skills-grid{
+        grid-template-columns:1fr;
+    }
+}
+ 
+  /* ---- Case studies ---- */
+  .case{
+    display:grid; grid-template-columns:0.9fr 1.4fr; gap:40px;
+    padding:36px 0; border-top:1px solid var(--line);
+  }
+  .case:first-of-type{border-top:none;}
+  .case-media img{width:100%; border:1px solid var(--line); display:block;}
+  .case-media .cap{font-family:'IBM Plex Mono',monospace; font-size:0.68rem; color:var(--ink-soft); margin-top:8px;}
+  .case-index{font-family:'IBM Plex Mono',monospace; color:var(--brass); font-size:0.8rem;}
+  .case h3{font-size:1.35rem; margin:8px 0 10px;}
+  .case .role{font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:14px; display:block;}
+  .case p{color:var(--ink-soft); margin:0 0 14px;}
+  .case .findings{margin:14px 0; padding-left:18px;}
+  .case .findings li{margin-bottom:8px; color:var(--ink-soft);}
+  .case .readlink{font-family:'IBM Plex Mono',monospace; font-size:0.78rem; text-decoration:none; border-bottom:1px solid var(--garnet);}
+  @media (max-width:760px){ .case{grid-template-columns:1fr;} }
+  .case-media img.watch-mockup{
+  width:55%;
+  max-width:260px;
+  margin:0 auto;
+  display:block;
+}
+ 
+  /* ---- Method / Test section ---- */
+  .method-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:36px;}
+  .method-card{border:1px solid var(--line); padding:20px; background:var(--paper);}
+  .method-card h4{font-family:'Source Serif 4',serif; font-size:1rem; margin:0 0 8px;}
+  .method-card p{font-size:0.85rem; color:var(--ink-soft); margin:0;}
+  @media (max-width:900px){ .method-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:500px){ .method-grid{grid-template-columns:1fr;} }
+ 
+  .leadership{margin-top:40px; display:grid; grid-template-columns:1fr 1fr; gap:30px;}
+  .leadership .card{border-left:3px solid var(--garnet); padding-left:20px;}
+  .leadership .card h4{margin:0 0 6px; font-size:1.05rem; font-family:'Source Serif 4',serif;}
+  .leadership .card p{color:var(--ink-soft); margin:0; font-size:0.92rem;}
+  @media (max-width:760px){ .leadership{grid-template-columns:1fr;} }
+ 
+  /* ---- Contact / Implement ---- */
+  .contact-box{
+    display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px;
+    background:var(--ink); color:var(--paper); padding:48px; margin-top:10px;
+  }
+  .contact-box h2{color:var(--paper); font-size:2rem;}
+  .contact-box p{color:#C9CBD6; max-width:46ch;}
+  .contact-links{display:flex; gap:16px; flex-wrap:wrap;}
+  .contact-links a.btn{border-color:var(--paper); color:var(--paper);}
+  .contact-links a.btn.primary{background:var(--brass); border-color:var(--brass); color:var(--ink);}
+  .placeholder{color:var(--brass); font-style:italic;}
+ 
+  footer{padding:32px; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--ink-soft);}
+</style>
+</head>
+<body>
+ 
+<nav class="rail">
+  <div class="rail-inner">
+    <div class="rail-mark">Mali <span>White</span></div>
+    <ul class="steps">
+      <li><a href="#discover"><span class="num">01</span>Discover</a></li>
+      <li><a href="#define"><span class="num">02</span>Define</a></li>
+      <li><a href="#design"><span class="num">03</span>Design</a></li>
+      <li><a href="#test"><span class="num">04</span>Test</a></li>
+      <li><a href="#implement"><span class="num">05</span>Implement</a></li>
+    </ul>
+  </div>
+</nav>
+ 
+<!-- 01 DISCOVER : HERO / ABOUT -->
+<section id="discover" class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">01 — Discover</span>
+        <h1>I study how people think, then build products that make technology easier to use.</h1>
+        <p class="lede">I'm a rising junior at Davidson College studying Cognitive Science with a minor in Data Science, and a Division I athlete on the Women's Lacrosse team. My work sits at the intersection of user research, product thinking, and interface design — I care about building things that are useful before they're clever.</p>
+        <div class="hero-tags">
+          <span class="tag">Product Management</span>
+          <span class="tag">UI / UX Design</span>
+          <span class="tag">Data Analysis</span>
+          <span class="tag">UX Research</span>
+          <span class="tag">Human-Computer Interaction</span>
+        </div>
+        <div class="hero-cta">
+          <a class="btn primary" href="#design">View case studies</a>
+          <a class="btn" href="#implement">Get in touch</a>
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <img src="https://maliwhite.dcreate.domains/wp-content/uploads/2025/12/IMG_3253-1-683x1024.jpeg" alt=IMG_3253.jpeg>
+        <figcaption>Mali White — Davidson College, NC</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+ 
+<!-- 02 DEFINE : MOTIVATION -->
+<section id="define">
+    <div class="wrap">
+  
+      <div class="section-head">
+        <span class="eyebrow">02 — Define</span>
+        <h2>I notice problems before I think about solutions.</h2>
+      </div>
+  
+      <div class="about-grid">
+  
+        <!-- Left Column -->
+        <div>
+  
+          <p>
+            I naturally notice friction in the way people interact with products,
+            services, and everyday systems. Whether I'm shopping, working a shift
+            as a hostess, or walking across campus, I find myself asking the same
+            questions: <em>Why is it done this way?</em> <em>Could this be
+            simpler?</em> <em>What would make this experience better?</em>
+          </p>
+  
+          <p>
+            That mindset has shaped many of my projects. UpCycle began after
+            noticing how often college students borrowed clothes from friends for
+            interviews, formals, and events while closets remained full of items
+            that were rarely worn. HostOps AI grew from working as a hostess and
+            seeing how seating decisions, table management, and communication
+            could be optimized to improve both the guest experience and restaurant
+            revenue.
+          </p>
+  
+          <p>
+            What motivates me most is finding practical ways to make people's
+            lives easier. I enjoy learning new technologies—from AI tools and
+            product design software to programming languages—not simply because
+            they're new, but because they help transform ideas into solutions that
+            solve real problems. Every project is an opportunity to understand
+            people more deeply, build something meaningful, and improve it through
+            feedback and iteration.
+          </p>
+  
+        </div>
+  
+        <!-- Right Column -->
+        <div class="goal-cards" style="grid-template-columns:1fr; margin-top:0;">
+  
+          <div class="goal-card">
+            <span class="eyebrow">Looking For</span>
+            <p>Product Management, UI/UX Design, and Data Analytics internships for Summer 2027.</p>
+          </div>
+  
+          <div class="goal-card">
+            <span class="eyebrow">How I Work</span>
+            <p>User interviews, rapid prototyping, iterative testing, and data-driven decision making to uncover and solve meaningful problems.</p>
+          </div>
+  
+          <div class="goal-card">
+            <span class="eyebrow">What I Bring</span>
+            <p>A blend of cognitive science, data analysis, human-centered design, and the discipline developed through Division I athletics.</p>
+          </div>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  </section>
+
+ 
+
+
+<!-- 03 DESIGN : CASE STUDIES -->
+<section id="design">
+    <div class="wrap">
+  
+      <div class="section-head">
+        <span class="eyebrow">03 — Design</span>
+        <h2>Selected Projects</h2>
+        <p>Projects that demonstrate my approach to product thinking, user research, and design.</p>
+      </div>
+  
+    <!-- Case: UpCycle -->
+<div class="case upcycle-case">
+    <div class="upcycle-gallery">
+  
+      <div class="mockup-block">
+        <img src="UpCycle Image.png" alt="Figma mockup of the UpCycle landing page">
+        <p>Figure 1. Early Figma mockup of the UpCycle landing page.</p>
+      </div>
+  
+      <div class="mockup-block">
+        <img src="UpCycle Profile.png" alt="Figma mockup of the UpCycle profile page">
+        <p>Figure 2. Early Figma mockup of the UpCycle profile page.</p>
+      </div>
+  
+    </div>
+  
+    <div class="upcycle-content">
+      <span class="case-index">Case 01 — Independent Product</span>
+      <h3>UpCycle: A Campus Clothing Marketplace</h3>
+  
+      <span class="role">
+        Founder · Product Manager · UX Designer · Developer
+      </span>
+  
+      <p class="status-badge">🚧 Currently Building MVP</p>
+  
+      <p>
+        UpCycle is a campus-exclusive marketplace that allows college students to buy, sell, and rent clothing within their university community. The idea grew from my own experience at Davidson, where students frequently borrow outfits from friends for formals, interviews, and themed events while closets remain full of clothing that is rarely worn. Existing marketplaces like Depop solve part of the problem, but they rely on shipping, lack campus verification, and aren't designed for the speed and convenience students need.
+      </p>
+  
+      <ul class="findings">
+        <li><strong>Problem:</strong> Students need an affordable, trustworthy way to access clothing for one-time events while giving unused items a second life.</li>
+        <li><strong>Product Vision:</strong> Build a verified marketplace where students can buy, sell, or rent clothing locally using their university email, eliminating shipping costs and making exchanges simple.</li>
+        <li><strong>Current Progress:</strong> Conducting user interviews, designing high-fidelity Figma prototypes, defining the MVP, and building the first version with HTML/CSS and Claude Code.</li>
+        <li><strong>Next Steps:</strong> Test the MVP with Davidson students, iterate based on feedback, and expand to additional college campuses.</li>
+      </ul>
+    </div>
+  </div>
+   
+      <div class="section-head" style="margin-top:80px;">
+        <span class="eyebrow">Coursework</span>
+        <h2>Human-Computer Interaction Projects</h2>
+        <p>
+          The following projects were completed as part of Davidson College's
+          Human-Computer Interaction course and emphasize user-centered design,
+          iterative prototyping, and usability evaluation.
+        </p>
+      </div>
+
+ 
+    <!-- Case: Fitness tracking (needfinding -> product) -->
+    <div class="case">
+      <div class="case-media">
+        <img src="Fitness Tracker.png" alt="Empathy Map created from individual interview">
+        <div class="cap">Empathy Map created from individual interview</div>
+      </div>
+      <div>
+        <span class="case-index">Case 02 — Research to Product</span>
+        <h3>A social fitness tracker, built from real interviews</h3>
+        <span class="role">Needfinding · UX Research · Product Design</span>
+        <p>Fitness trackers are everywhere, but I wanted to know if they actually work for the people using them. Conducted 3 in-depth user interviews, ranging from a 19-year-old college athlete to a 33-year-old mom to a 23-year-old software engineer, and synthesized findings into empathy maps that informed product direction. </p>
+        <p>The real problem wasn't accuracy or features — it was isolation. Every participant independently said they wanted a workout partner, and every participant found their existing tracker cluttered or demotivating.</p>
+        <ul class="findings">
+          <li><strong>Insight:</strong> a platform connecting users by ability and proximity mattered more than any new tracking feature.</li>
+          <li><strong>Design response:</strong> a website (not another wearable) layered onto whatever device a user already owns, with a customizable, low-clutter homepage and a "workout buddy" matching and messaging system.</li>
+          <li><strong>Validation:</strong> Completed 3 usability sessions uncovering 12 actionable usability issues which reshaped the next iteration.</li>
+        </ul>
+        <a class="readlink" href="https://maliwhite.dcreate.domains/hci/needfinding-tracking-fitness/" target="_blank" rel="noopener">Read the full research →</a>
+      </div>
+    </div>
+ 
+    <!-- Case: Knotty & Board multi-device redesign -->
+    <div class="case">
+      <div class="case-media">
+        <img
+        src="Knotty & Board Apple Watch.png"
+        alt="Final Apple Watch prototype for Knotty and Board redesign"
+        class="watch-mockup">
+        <div class="cap">Final Apple Watch prototype, built in Figma</div>
+      </div>
+      <div>
+        <span class="case-index">Case 02 — Multi-Platform Design</span>
+        <h3>Redesigning a furniture retailer for three screens at once</h3>
+        <span class="role">Persona Research · Cross-Platform UI · Figma</span>
+        <p>Working in a team, I redesigned the Knotty &amp; Board furniture website across three very different surfaces — desktop, Apple Watch, and a large multi-touch display — after building three user personas spanning a 62-year-old retiree, a shopping-with-kids mom, and an efficiency-focused recent grad.</p>
+        <ul class="findings">
+          <li><strong>Constraint-driven design:</strong> the watch interface was stripped to a single job — scan an item in-store and add it to cart — since a shopping catalog doesn't belong on a 40mm screen.</li>
+          <li><strong>The large display</strong> became a collaborative, in-store design tool: a 3D/2D/POV toggle let shoppers preview furniture in their own floor plan.</li>
+          <li><strong>Iteration:</strong> feedback sessions on all three prototypes drove concrete changes — from relabeling ambiguous icons to restructuring the desktop homepage navigation per instructor feedback.</li>
+        </ul>
+        <a class="readlink" href="https://maliwhite.dcreate.domains/hci/design-sprint-1-design-for-dimensions/" target="_blank" rel="noopener">Read the full case study →</a>
+      </div>
+    </div>
+ 
+    <!-- Case: Physical prototype extension -->
+    <div class="case">
+      <div class="case-media">
+        <img src="Physical Prototype.png" alt="Physical Prototype scaled down in size built from paper and cardboard">
+        <div class="cap">Physical Prototype scaled down in size built from paper and cardboard</div>
+      </div>
+      <div>
+        <span class="case-index">Case 03 — From Screen to Physical Prototype</span>
+        <h3>Taking a digital concept into the physical world</h3>
+        <span class="role">Usability Testing · Physical Prototyping · Accessibility</span>
+        <p>I extended the Knotty &amp; Board work into a physical concept: an accessible, sensor-equipped shopping cart for in-store navigation. I wrote and ran a 9-question usability test, then translated the findings into a 3D model and a working cardboard-and-scooter prototype.</p>
+        <ul class="findings">
+          <li><strong>Testing surfaced real usability gaps</strong> — a search bar that was too visually small for how central it was to the task.</li>
+          <li><strong>Accessibility became a first-class constraint:</strong> the prototype added text-to-speech and adjustable font size after usability sessions flagged issues for visually impaired shoppers.</li>
+          <li><strong>Future iteration</strong> plans included wider seating for groups and self-driving navigation to reduce the accessibility burden on the shopper.</li>
+        </ul>
+        <a class="readlink" href="https://maliwhite.dcreate.domains/hci/design-sprint-4-design-to-extend/" target="_blank" rel="noopener">Read the full case study →</a>
+      </div>
+    </div>
+ 
+    <!-- Case: Data visualization -->
+    <div class="case">
+      <div class="case-media">
+        <img src="Spotify.png" alt="First Design Sheet in Five-Design Sheet Methodology to ideate">
+        <div class="cap">First Design Sheet in Five-Design Sheet Methodology to ideate</div>
+      </div>
+      <div>
+        <span class="case-index">Case 04 — Data Storytelling</span>
+        <h3>Turning a churn dataset into a decision-ready dashboard</h3>
+        <span class="role">Data Visualization · Analytics · Storytelling</span>
+        <p>Using a public Spotify subscription and churn dataset from Kaggle, I designed both an analytical dashboard and a persuasive, stakeholder-facing visualization — going through five rounds of design sheets to get there.</p>
+        <ul class="findings">
+          <li><strong>Ruled things out deliberately:</strong> a world map looked appealing but was mostly empty given only 8 countries in the data, so I moved to a grid and later a stacked bar chart comparing gender to subscription type.</li>
+          <li><strong>Built for accessibility:</strong> encoded subscription type with both color and shape in the final scatterplot, so the chart still works for color-blind users.</li>
+          <li><strong>The persuasive version</strong> centered on retention — a heatmap, a sign-up-to-churn funnel, and a survival curve — built specifically for a Spotify product/design audience rather than a general one.</li>
+        </ul>
+        <a class="readlink" href="https://maliwhite.dcreate.domains/hci/design-sprint-2-design-for-understanding/" target="_blank" rel="noopener">Read the full case study →</a>
+      </div>
+    </div>
+ 
+    <!-- Case: VR world -->
+    <div class="case">
+        <div class="case-media">
+
+            <!-- Summer Scene -->
+            <div class="mockup-block">
+              <img src="Summer Past.png"
+                   alt="VR visualization of Lake Norman in a past summer">
+          
+              <p class="cap">
+                Figure 1. Summer scene from the 360° VR experience.
+              </p>
+            </div>
+          
+            <!-- Future Scene -->
+            <div class="mockup-block">
+              <img src="Summer Present.png"
+                   alt="Future scene from the VR experience">
+          
+              <p class="cap">
+                Figure 2. Future scene generated for the VR experience.
+              </p>
+            </div>
+          
+          </div>
+      <div>
+        <span class="case-index">Case 05 — Emerging Technology</span>
+        <h3>A 360° VR experience built with AI-assisted generation</h3>
+        <span class="role">VR Prototyping · A-Frame · Prompt Engineering</span>
+        <p>With a small team, I helped build a 360° VR "time machine" through Davidson's Lake Campus, reimagining it across four seasons and three eras — past, present, and future — using AI video generation (Veo, Gemini) layered into an A-Frame environment.</p>
+        <ul class="findings">
+          <li><strong>Owned the "Summer" scene</strong> end to end, iterating on generation prompts to get a stationary 360° camera — a constraint the AI tools frequently ignored, which shaped how I wrote every later prompt.</li>
+          <li><strong>Practical constraints drove decisions:</strong> limited generation tokens and inconsistent AI output meant documenting bugs transparently rather than hiding them.</li>
+          <li><strong>Cross-functional collaboration:</strong> coordinated scene design and a shared GitHub repo across four teammates working independently on their own seasons.</li>
+        </ul>
+        <a class="readlink" href="https://maliwhite.dcreate.domains/hci/design-sprint-3-design-for-another-world/" target="_blank" rel="noopener">Read the full case study →</a>
+      </div>
+    </div>
+ 
+ 
+<!-- 04 TEST : METHODS + LEADERSHIP -->
+<section id="test">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">04 — Test</span>
+      <h2>How I validate ideas</h2>
+      <p>Design that isn't tested is just an opinion. These are the methods I return to across every project, on paper and in practice.</p>
+    </div>
+    <div class="method-grid">
+      <div class="method-card">
+        <h4>Needfinding &amp; Interviews</h4>
+        <p>Structured interviews and empathy mapping to find the root problem, not the presenting one.</p>
+      </div>
+      <div class="method-card">
+        <h4>Usability Testing</h4>
+        <p>Task-based sessions with think-aloud protocol to catch friction before it ships.</p>
+      </div>
+      <div class="method-card">
+        <h4>Heuristic Evaluation</h4>
+        <p>Independent expert review against established usability guidelines.</p>
+      </div>
+      <div class="method-card">
+        <h4>Five Design Sheets</h4>
+        <p>Structured ideation from low-fidelity sketches to a converged final design.</p>
+      </div>
+      <div class="method-card">
+        <h4>Data Visualization</h4>
+        <p>Analytical and persuasive charting, built for the audience that has to act on it.</p>
+      </div>
+      <div class="method-card">
+        <h4>Rapid Prototyping</h4>
+        <p>Paper, Figma, and physical builds — whichever gets a testable idea in front of users fastest.</p>
+      </div>
+      <div class="method-card">
+        <h4>AI-Assisted Workflows</h4>
+        <p>Prompt engineering with generative AI tools (Veo, Gemini, ChatGPT) for rapid concept visualization.</p>
+      </div>
+      <div class="method-card">
+        <h4>Cross-Functional Collaboration</h4>
+        <p>Shared repos, divided ownership, and synthesis across teammates' independent work.</p>
+      </div>
+    </div>
+ 
+    <div class="leadership">
+      <div class="card">
+        <h4>NCAA Division I Athletics</h4>
+        <p>Competing on Davidson College's Women's Lacrosse team while carrying a full academic course load — a daily exercise in prioritization, discipline, and performing under pressure.</p>
+      </div>
+      <div class="card">
+        <h4>Life Skills / Team IMPACT Team Leader</h4>
+        <p>Leading a team-based initiative connecting athletics with community impact, building the same stakeholder communication and organizational skills a PM leans on daily.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- 05 IMPLEMENT : CONTACT -->
+<section id="implement">
+  <div class="wrap">
+    <div class="contact-box">
+      <div>
+        <span class="eyebrow" style="color:var(--brass);">05 — Implement</span>
+        <h2>Let's build something.</h2>
+        <p>I'm looking for product management, UI/UX, and data analytics internships for the upcoming school year or next summer. If a role needs someone who researches before she designs, I'd love to talk.</p>
+      </div>
+      <div class="contact-links">
+        <a class="btn primary" href="mailto:maliwhite926@gmail.com">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/mali-white/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="White Mali Davidson College Resume.docx-16.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<footer>Mali White · Davidson College · Portfolio last updated 2026</footer>
+ 
+<script>
+  // Scroll-spy for the process rail
+  const sections = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('.steps a');
+  const setActive = () => {
+    let current = sections[0].id;
+    const offset = 120;
+    sections.forEach(sec => {
+      if (window.scrollY + offset >= sec.offsetTop) current = sec.id;
+    });
+    links.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  };
+  document.addEventListener('scroll', setActive);
+  setActive();
+</script>
+ 
+</body>
+</html> 
